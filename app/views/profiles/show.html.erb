@@ -1,9 +1,9 @@
-<div class="detail detail1">
+<div class="detail detail1" style="margin-bottom:15px;">
     <div class="image"><%=icon_for_profile(@profile, 'big')%></div>
     <div class="title"><%=@profile.full_name%></div>
     <div class="subtitle"><%= I18n.t('tog_social.profiles.model.username') %>: <%=@profile.user.login%></div>
     <div class="summary"><%= I18n.t('tog_social.profiles.site.summary') %></div>
-    <div class="portlet portletC" id="portlet_moreLinks">
+    <div class="portlet portletC" id="portlet_groups">
       <% if !@profile.user.groups.blank? %>
         <h2><span><%= I18n.t('tog_social.groups.site.title') %></span></h2>
         <div class="portlet_content">
@@ -17,7 +17,7 @@
 
       <% end %>        
     </div>    
-    
+
     <div class="portlet portletC" id="portlet_moreLinks">
         <h2><span><%= I18n.t('tog_social.more_links') %></span></h2>
         <div class="portlet_content">
@@ -32,8 +32,48 @@
             </ul>
         </div> 
     </div>    
-    
+
 </div> <!-- /.detail1 -->    
+
+<div class="portlet portletC" id="portlet_blogs">
+  <h2><span><%= I18n.t('tog_conversatio.views.blogs.index.title') %></span></h2>
+  <div class="portlet_content">
+      <ul>
+        <% if @profile.user.blogs.empty? %>
+          <li class="clearfix"><%= I18n.t('tog_conversatio.views.blogs.index.not_found') %></li>
+        <% else %>
+          <% @profile.user.blogs.each do |blog| %>
+          <li class="clearfix">
+              <div class="title"><%= link_to "#{sanitize(blog.title)}", conversatio_blog_path(blog), :title => "#{sanitize(blog.title)}" %></div>
+              <div class="text"><%= blog.description %> (<strong><%=blog.posts.published.size %> <%= I18n.t('tog_conversatio.views.blogs.index.posts') %></strong>)</div>
+              <ul>
+                <% if blog.posts.published.empty? %>
+                  <li class="clearfix"><%= I18n.t('tog_conversatio.views.blogs.show.posts_not_found') %>
+                <% else %>
+                  <% blog.posts.published[0..4].each do |post| %>
+                    <li><div class="text"><%= link_to "#{sanitize post.title}", conversatio_blog_post_path(blog, post), :title => "#{sanitize post.title}" %></div></li>
+                  <% end %>
+                <% end %>
+              </ul>
+          </li>
+          <%end%>
+        <%end%>
+      </ul>
+  </div>
+</div>
+
+<div class="portlet portletC" id="portlet_picto">
+  <h2><span><%= I18n.t('interface.site.photos') %></span></h2>
+  <% if @profile.user.photos.public.empty? %>
+    <%= I18n.t('tog_picto.photoset_photos.no_photos_yet') %>
+  <% else %>
+    <div class="portlet_content">
+    <% @profile.user.photos.public[0..4].each do |photo| %>
+      <%= link_to image_tag(photo.image.url(:tiny)), picto_photo_url(photo), {:title => photo.title} %>
+    <% end %>
+    </div>
+  <%end%>
+</div>
 
 <% content_for :sidebar do %>
 
