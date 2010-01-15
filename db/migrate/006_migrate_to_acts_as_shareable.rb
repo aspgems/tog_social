@@ -20,7 +20,7 @@ class MigrateToActsAsShareable < ActiveRecord::Migration
     remove_column :shares, :status
     create_table :group_sharings do |t|
       t.integer  :group_id
-      t.integer  :shareable_id
+      t.integer  :shareable_id, :null => false, :references => nil
       t.string   :shareable_type
       t.integer  :shared_by
       t.integer  :status, :default => 1
