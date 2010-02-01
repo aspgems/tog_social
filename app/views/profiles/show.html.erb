@@ -75,6 +75,19 @@
   <%end%>
 </div>
 
+<div class="portlet portletC" id="portlet_wall">
+  <h2><span><%= I18n.t('interface.site.wall') %></span></h2>
+  <% if @profile.wall.graffities.empty? %>
+    <%= I18n.t('tog_wall.views.walls.show.graffities.not_found') %>
+  <% else %>
+    <div class="portlet_content">
+      <% @profile.wall.graffities.first(5).each do |graffity| %>
+        <%= link_to graffity.title, profile_wall_path(@profile) %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 <% content_for :sidebar do %>
 
 <%= render :partial => "shared/profiles_portlet", :locals => { 

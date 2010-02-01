@@ -27,7 +27,8 @@ en:
         created_at: Shared at
         shared_by: Shared by
         group: Group
-      member: 
+      member:
+        title: My sharings
         already_shared: Already shared
         share: Share '{{name}}'
         remove_share: Remove Share
@@ -123,6 +124,7 @@ en:
         group_tagged: Group tagged {{tag}}
         group_tags: Group tags
       member:
+        title: My groups
         created: Group created successfully.
         pending: Your group has been created but is pending for administrator's approval.
         group_member: Groups you are a member of

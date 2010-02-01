@@ -1,5 +1,4 @@
-<div class="titleB"><%= I18n.t('tog_social.groups.member.edit_group', :group => @group.name) %></div>
-<br/>
+<h1><%= I18n.t('tog_social.groups.member.edit_group', :group => @group.name) %></h1>
 <%= error_messages_for :group %>
 
 <% form_for(@group, :url => member_group_path(@group), :html => { :multipart => true, :method => :put}) do |f| %>

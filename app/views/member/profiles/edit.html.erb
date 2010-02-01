@@ -1,5 +1,4 @@
-<div class="titleB"><%= I18n.t('tog_social.profiles.member.update_profile') %></div>
-<br />
+<h1><%= I18n.t('tog_social.profiles.member.update_profile') %></h1>
 
 <%= error_messages_for :profile %>
 <% form_for :profile, :url => member_profile_path(@profile), :html => {:method => :put, :multipart=>true} do |f| -%>

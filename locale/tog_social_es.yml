@@ -28,6 +28,7 @@ es:
         shared_by: Compartido por
         group: Grupo       
       member:
+        title: Mis compartidos
         already_shared: Ya compartido      
         share: Compartir '{{name}}'
         remove_share: Dejar de compartir
@@ -59,9 +60,9 @@ es:
         edit_profile: Edita tu perfil
         send_message: Enviar mensaje privado
       member:
-        updated: Su perfíl se ha actualizado con éxito
-        update_profile: Actualizar perfíl
-        profile_details: Detalles del perfíl 
+        updated: Su perfil se ha actualizado con éxito
+        update_profile: Actualizar perfil
+        profile_details: Detalles del perfil
       helper:
         photo_for_user: Foto de {{name}}
         follow_user: Seguir a {{name}}
@@ -83,13 +84,13 @@ es:
         private_help: Un grupo privado no aparecerá en los listados públicos.
         moderated: Moderado
         moderated_help: En un grupo moderado cada solicitud de netrada debe ser aprobada.
-        moderated_by: Moderador por
-        moderated_by_you: Moderador por tí
+        moderated_by: Moderado por
+        moderated_by_you: Moderado por tí
         active: Activo
         icon: Icono
         created_at: Creado el
         updated_at: Actualizado el
-        member_status: Status        
+        member_status: Estado
       site:
         share: Compartir con tus grupos
         share_title: Compartir con el grupo '{{name}}'        
@@ -123,6 +124,7 @@ es:
         group_tagged: Grupos etiquetados {{tag}}
         group_tags: Tags de grupos
       member:
+        title: Mis grupos
         created: Grupo creado con éxito.
         pending: Tu grupo ha sido creado pero está pendiente de aprobación por un administrador
         group_member: Grupos de los que eres miembro
